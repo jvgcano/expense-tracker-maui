@@ -5,4 +5,8 @@
     <Project Path="src/ExpenseTracker.Infrastructure/ExpenseTracker.Infrastructure.csproj" />
     <Project Path="src/ExpenseTracker.Maui/ExpenseTracker.Maui.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ExpenseTracker.Application.Tests/ExpenseTracker.Application.Tests.csproj" />
+    <Project Path="tests/ExpenseTracker.Domain.Tests/ExpenseTracker.Domain.Tests.csproj" />
+  </Folder>
 </Solution>
