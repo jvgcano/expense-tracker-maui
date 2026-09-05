@@ -4,12 +4,25 @@ namespace ExpenseTracker.Application.Expenses.CreateExpense;
 
 public sealed class CreateExpenseHandler
 {
-    public Expense Handle(CreateExpenseCommand command)
+    private readonly IExpenseRepository _repository;
+
+    public CreateExpenseHandler(IExpenseRepository repository)
     {
-        return new Expense(
+        _repository = repository;
+    }
+
+    public async Task<Expense> HandleAsync(
+        CreateExpenseCommand command,
+        CancellationToken cancellationToken = default)
+    {
+        var expense = new Expense(
             command.Amount,
             command.Category,
             command.Date,
             command.Description);
+
+        await _repository.AddAsync(expense, cancellationToken);
+
+        return expense;
     }
 }
