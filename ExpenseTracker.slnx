@@ -8,5 +8,6 @@
   <Folder Name="/tests/">
     <Project Path="tests/ExpenseTracker.Application.Tests/ExpenseTracker.Application.Tests.csproj" />
     <Project Path="tests/ExpenseTracker.Domain.Tests/ExpenseTracker.Domain.Tests.csproj" />
+    <Project Path="tests/ExpenseTracker.Infrastructure.Tests/ExpenseTracker.Infrastructure.Tests.csproj" />
   </Folder>
 </Solution>
