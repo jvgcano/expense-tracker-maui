@@ -1,5 +1,8 @@
 ﻿using ExpenseTracker.Application.Expenses;
+using ExpenseTracker.Application.Expenses.CreateExpense;
 using ExpenseTracker.Infrastructure.Persistence.Sqlite;
+using ExpenseTracker.Maui.Features.Expenses.CreateExpense;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace ExpenseTracker.Maui;
@@ -32,10 +35,24 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IExpenseRepository, SqliteExpenseRepository>();
 
+        builder.Services.AddTransient<CreateExpenseHandler>();
+        builder.Services.AddTransient<CreateExpenseViewModel>();
+        builder.Services.AddTransient<CreateExpensePage>();
+
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
 
-        return builder.Build();
+        var app = builder.Build();
+
+        var initializer =
+            app.Services.GetRequiredService<SqliteDatabaseInitializer>();
+
+        initializer
+            .InitializeAsync()
+            .GetAwaiter()
+            .GetResult();
+
+        return app;
     }
 }

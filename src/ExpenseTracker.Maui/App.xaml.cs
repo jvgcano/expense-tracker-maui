@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MauiApplication = Microsoft.Maui.Controls.Application;
+﻿using MauiApplication = Microsoft.Maui.Controls.Application;
 
 namespace ExpenseTracker.Maui;
 
