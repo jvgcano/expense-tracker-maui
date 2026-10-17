@@ -35,7 +35,9 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IExpenseRepository, SqliteExpenseRepository>();
 
-        builder.Services.AddTransient<CreateExpenseHandler>();
+        builder.Services.AddTransient<
+            ICreateExpenseHandler,
+            CreateExpenseHandler>();
         builder.Services.AddTransient<CreateExpenseViewModel>();
         builder.Services.AddTransient<CreateExpensePage>();
 
