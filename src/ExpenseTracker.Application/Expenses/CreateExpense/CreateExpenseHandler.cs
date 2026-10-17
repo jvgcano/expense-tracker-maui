@@ -2,7 +2,7 @@ using ExpenseTracker.Domain.Entities;
 
 namespace ExpenseTracker.Application.Expenses.CreateExpense;
 
-public sealed class CreateExpenseHandler
+public sealed class CreateExpenseHandler : ICreateExpenseHandler
 {
     private readonly IExpenseRepository _repository;
 
